@@ -2,18 +2,18 @@
 This is a detailed description of all the open source codes used in the paper “Path Loss Prediction in Urban Environments with Sionna-RT Based on Accurate Propagation Scene Models At 2.8 GHz”.
 
 ## Point clouds segmentation
-我们使用Senast数据集训练得到的RandLA-Net网络执行点云分割。数据集的下载地址为https://github.com/QingyongHu/SensatUrban. 该仓库同时还提供了RandLA-Net网络的训练脚本。
+We use the RandLA-Net network, trained on the SensatUrban dataset, to perform point cloud segmentation. The dataset can be downloaded from https://github.com/QingyongHu/SensatUrban. This repository also provides training scripts for the RandLA-Net network.
 
 ## Surface reconstruction
 ### Building point Clouds 
-我们使用Polyfit方法对建筑点云进行表面重建，Polyfit算法的代码可以在以下网址获取：https://github.com/LiangliangNan/PolyFit.
+We use the Polyfit method for surface reconstruction of building point clouds. The code for the Polyfit algorithm can be found at the following URL: https://github.com/LiangliangNan/PolyFit.
 
 ### Ground point clouds
-地面点云的重建分为四步，离群值去除、下采样、插值填补空缺以及最后的重建，这部分代码可在本仓库中获取。
+The reconstruction of ground point clouds consists of four steps: outlier removal, downsampling, interpolation to fill gaps, and the final reconstruction. The code for this process can be found in this repository.
 
 ### Remaining point clouds
-其余的点云，包括植被点云、围栏点云以及街道设施点云，我们采用Ball Pivoting Algorithm（BPA）进行高鲁棒性重建。虽然Python的Open3d库提供了该算法的调用，但需要人为设定旋转球的半径，该参数会显重影响重建的质量。我们发现Meshlab软件（https://www.meshlab.net/ ）提供的BPA支持自动猜测旋转球的半径，其重建质量较高。Pymeshlab库(https://pymeshlab.readthedocs.io/en/latest/ )可调用Meshlab软件进行批量重建。
+We use the Ball Pivoting Algorithm (BPA) for robust reconstruction of the remaining point clouds, including vegetation, fence, and street facility point clouds. Although the Open3d library in Python provides an implementation of this algorithm, it requires manually setting the radius of the pivoting ball, which can significantly impact the reconstruction quality. We found that the Meshlab software (https://www.meshlab.net/) supports automatic estimation of the pivoting ball radius, resulting in higher reconstruction quality. The Pymeshlab library (https://pymeshlab.readthedocs.io/en/latest/) can be used to call Meshlab for batch reconstructions.
 
 ## Ray Tracing
-我们使用Nvidia开源的Sionna-RT(https://nvlabs.github.io/sionna/ )进行射线追踪模拟，Sionna-RT基于Mitsuba 3和TensorFlow构建，可非常高效地实现包括散射在内的射线追踪仿真。
+We use Nvidia's open-source Sionna-RT (https://nvlabs.github.io/sionna/) for ray tracing simulation. Sionna-RT is built on Mitsuba 3 and TensorFlow, enabling highly efficient simulations of direct transmission, reflection, diffraction, and scattering.
 
