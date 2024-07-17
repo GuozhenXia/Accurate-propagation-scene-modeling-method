@@ -12,5 +12,8 @@ This is a detailed description of all the open source codes used in the paper �
 地面点云的重建分为四步，离群值去除、下采样、插值填补空缺以及最后的重建，这部分代码可在本仓库中获取。
 
 ### Remaining point clouds
-其余的点云，包括植被点云、围栏点云以及街道设施点云，我们采用Ball Pivoting Algorithm（BPA）进行高鲁棒性重建。虽然Python的Open3d库提供了该算法的调用，但需要人为设定旋转球的半径，该参数会显重影响重建的质量。我们发现Meshlab软件（https://www.meshlab.net/ ）提供的BPA支持自动猜测旋转球的半径，其重建质量较高。Pymeshlab库(https://pymeshlab.readthedocs.io/en/latest/ )可批量调用Meshlab软件进行重建。
+其余的点云，包括植被点云、围栏点云以及街道设施点云，我们采用Ball Pivoting Algorithm（BPA）进行高鲁棒性重建。虽然Python的Open3d库提供了该算法的调用，但需要人为设定旋转球的半径，该参数会显重影响重建的质量。我们发现Meshlab软件（https://www.meshlab.net/ ）提供的BPA支持自动猜测旋转球的半径，其重建质量较高。Pymeshlab库(https://pymeshlab.readthedocs.io/en/latest/ )可调用Meshlab软件进行批量重建。
+
+## Ray Tracing
+我们使用Nvidia开源的Sionna-RT(https://nvlabs.github.io/sionna/ )进行射线追踪模拟，Sionna-RT基于Mitsuba 3和TensorFlow构建，可非常高效地实现包括散射在内的射线追踪仿真。
 
