@@ -1,5 +1,5 @@
 # Accurate-propagation-scene-modeling-method
-This is a detailed description of all the open source codes used in the paper “Path Loss Prediction in Urban Environments with Sionna-RT Based on Accurate Propagation Scene Models At 2.8 GHz”.
+This is a detailed description of all the open source codes and dataset used in the paper “Path Loss Prediction in Urban Environments with Sionna-RT Based on Accurate Propagation Scene Models At 2.8 GHz”.
 
 ## Point clouds segmentation
 We use the RandLA-Net network, trained on the SensatUrban dataset, to perform point cloud segmentation. The dataset can be downloaded from https://github.com/QingyongHu/SensatUrban. This repository also provides training scripts for the RandLA-Net network.
